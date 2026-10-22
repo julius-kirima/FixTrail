@@ -117,6 +117,21 @@
             </form>
         </section>
 
+         
+        <section id="track-report">
+            <h2>Track Your Fault Report</h2>
+            <p>Enter your report ID to check its current status.</p>
+
+            <form id="track-form">
+                <label for="report-id">Report ID</label>
+                <input type="text" id="report-id" min="1" required>
+                <button type="submit">Track Report</button>
+            </form>
+
+            <p id="track-message" role="status" aria-live="polite"></p>
+            <div id="track-result"></div>
+        </section>
+
         <section id="how-it-works">
             <h2>How FixTrail Works</h2>
 
@@ -141,5 +156,6 @@
         <p>&copy; 2026 FixTrail. Facility faults, tracked responsibly.</p>
     </footer>
 
+    <script type="module" src="js/main.js"></script>
 </body>
 </html>

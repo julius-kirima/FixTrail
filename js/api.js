@@ -1,4 +1,4 @@
-const API_URL = "https://localhost:3000/fault_reports"
+const API_URL = "http://localhost:3000/fault_reports";
 
 //GET: Retrieve fault report
 
