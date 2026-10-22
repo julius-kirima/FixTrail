@@ -1,14 +1,14 @@
-import { SUPABASE_KEY , SUPABASE_URL } from "./config";
+const API_URL = "https://localhost:3000/fault_reports"
 
+//GET: Retrieve fault report
 
-//REPORTS_URL points to the fault_reports table through the Supabase REST API.
-const REPORT_URL = `${SUPABASE_URL}/rest/v1/fault_report`
+export function getReports() {
+    return fetch(API_URL)
+    .then(response => {
+        if(!response.ok) {
+            throw new Error("Failed to load reports.")
+        }
 
-const HEADERS = {
-    apikey : SUPABASE ,
-    Authorization: `Bearer ${SUPABASE_KEY}` , 
-    "Content-Type": "application/json"
-};
-
-//GET: Retrive report from Supabase
-
+        return response.json();
+    })
+}
