@@ -1,0 +1,143 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Report and track maintenance faults in shared facilities with FixTrail.">
+    <title>FixTrail | Report a Fault</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <header>
+        <nav class="navbar">
+            <a href="index.html" class="logo">FixTrail</a>
+
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#report">Report a Fault</a></li>
+                <li><a href="#how-it-works">How It Works</a></li>
+                <li><a href="dashboard.html">Admin Dashboard</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero" id="home">
+            <div class="hero-content">
+                <p class="hero-label">FACILITY MAINTENANCE TRACKING</p>
+
+                <h1>Report It. Track It. Fix It.</h1>
+
+                <p>
+                    Report faulty equipment, help identify maintenance
+                    problems, and track repairs in your computer lab.
+                </p>
+
+                <a href="#report" class="hero-button">Report a Fault</a>
+            </div>
+        </section>
+
+        <section class="report-section" id="report">
+            <h2>Submit a Fault Report</h2>
+            <p>Provide your details and describe the problem clearly.</p>
+
+            <form id="fault-form">
+
+                <div class="form-group">
+                    <label for="student-name">Your Full Name</label>
+                    <input
+                        type="text"
+                        id="student-name"
+                        name="student_name"
+                        placeholder="Enter your full name"
+                        required
+                        maxlength="100"
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label for="fault-title">Fault Title</label>
+                    <input
+                        type="text"
+                        id="fault-title"
+                        name="title"
+                        placeholder="e.g. Computer not starting"
+                        required
+                        maxlength="150"
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label for="fault-category">Fault Category</label>
+                    <select id="fault-category" name="category" required>
+                        <option value="">Select a category</option>
+                        <option value="Computer">Computer</option>
+                        <option value="Keyboard">Keyboard</option>
+                        <option value="Mouse">Mouse</option>
+                        <option value="Internet">Internet</option>
+                        <option value="Projector">Projector</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="fault-location">Location or Equipment ID</label>
+                    <input
+                        type="text"
+                        id="fault-location"
+                        name="location"
+                        placeholder="e.g. Lab 1, Computer 05"
+                        required
+                        maxlength="150"
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label for="fault-description">Fault Description</label>
+                    <textarea
+                        id="fault-description"
+                        name="description"
+                        rows="5"
+                        placeholder="Explain what is wrong..."
+                        required
+                        maxlength="2000"
+                    ></textarea>
+                </div>
+
+                <button type="submit" id="submit-fault">
+                    Submit Fault Report
+                </button>
+
+                <p id="form-message" role="status" aria-live="polite"></p>
+
+            </form>
+        </section>
+
+        <section id="how-it-works">
+            <h2>How FixTrail Works</h2>
+
+            <article>
+                <h3>1. Report</h3>
+                <p>Students submit details about faulty equipment.</p>
+            </article>
+
+            <article>
+                <h3>2. Review</h3>
+                <p>The administrator reviews submitted reports.</p>
+            </article>
+
+            <article>
+                <h3>3. Resolve</h3>
+                <p>The administrator tracks repairs and updates their status.</p>
+            </article>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2026 FixTrail. Facility faults, tracked responsibly.</p>
+    </footer>
+
+</body>
+</html>

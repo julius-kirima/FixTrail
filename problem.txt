@@ -1,0 +1,29 @@
+FixTrail — Problem Statement and Solution
+1. Problem Statement
+In schools and learning institutions, students often encounter faulty shared facilities and equipment, such as computers, keyboards, projectors, and internet connections. However, reporting these faults can be difficult when there is no centralized system for recording and tracking them.
+
+Fault reports may be communicated verbally or through informal channels, making it difficult for administrators to keep accurate records, monitor unresolved issues, prioritize repairs, and track progress. As a result, faults may remain unresolved for long periods, disrupting learning activities and reducing the reliability of shared facilities.
+
+FixTrail addresses this problem by providing a centralized digital platform for reporting, managing, and tracking shared-facility faults.
+2. Proposed Solution
+FixTrail is a web-based Shared-Facility Repair Tracking System that allows students to report faulty equipment or facilities through a simple online form. Administrators can access a dashboard to view submitted reports, filter them by status, and update their progress as repairs are handled.
+
+Each report contains the student's name, fault title, category, location, description, submission date, and current status. Reports are stored in a Supabase database, providing a centralized record that can be retrieved and updated.
+
+The system uses three main statuses:
+- Open: The fault has been reported but has not yet been addressed.
+- In Progress: The fault is being investigated or repaired.
+- Resolved: The fault has been fixed.
+3. How FixTrail Solves the Problem
+Problem	FixTrail solution
+Faults are reported through scattered channels.	Provides one centralized reporting form.
+Reports can be forgotten or lost.	Stores reports in a database.
+Administrators struggle to identify unresolved faults.	Provides status filters and summary statistics.
+Repair progress is difficult to monitor.	Allows administrators to update report statuses.
+There is limited visibility into reported faults.	Provides a dashboard showing fault details and current statuses.
+4. Project Objective
+To develop a web-based system that simplifies fault reporting, centralizes repair records, and enables administrators to monitor and update the resolution status of shared-facility problems.
+5. Expected Outcome
+FixTrail will provide students with a convenient way to report faulty facilities and give administrators a structured way to manage reported issues. The system is intended to improve record-keeping, accountability, and visibility into repair progress.
+
+Project scope: The current version focuses on submitting reports, retrieving reports, filtering by status, and updating statuses. It does not yet include automated repair assignments, email notifications, or verified administrator authentication.
