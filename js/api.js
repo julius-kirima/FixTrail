@@ -1,4 +1,4 @@
-const API_URL = "https://julius-kirima.github.io/FixTrail/db.json";
+const API_URL = "https://raw.githubusercontent.com/julius-kirima/FixTrail/main/db.json";
 
 //GET: Retrieve fault report
 
