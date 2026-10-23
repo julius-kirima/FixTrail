@@ -48,11 +48,21 @@ function displayReports(reports) {
 
 function loadReports() {
     getReports()
-        .then(reports => {
+        .then(data => {
+            const reports = data.fault_reports;
+
+            if (!Array.isArray(reports)) {
+                throw new Error("Invalid reports data.");
+            }
+
             updateStats(reports);
-            displayReports(filter.value === "all"
-                ? reports
-                : reports.filter(r => r.status === filter.value));
+
+            displayReports(
+                filter.value === "all"
+                    ? reports
+                    : reports.filter(r => r.status === filter.value)
+            );
+
             message.textContent = "";
         })
         .catch(error => {
@@ -62,21 +72,30 @@ function loadReports() {
 }
 
 filter.addEventListener("change", loadReports);
-document.querySelector("#refresh-reports").addEventListener("click", loadReports);
+
+document.querySelector("#refresh-reports")
+    .addEventListener("click", loadReports);
 
 faultList.addEventListener("click", event => {
     if (!event.target.classList.contains("update-status")) return;
 
     const id = event.target.dataset.id;
-    const status = faultList.querySelector(`.status-update[data-id="${id}"]`).value;
+    const status = faultList.querySelector(
+        `.status-update[data-id="${id}"]`
+    ).value;
 
-    fetch(`http://localhost:3000/fault_reports/${id}`, {
+    fetch(`http://localhost:3001/fault_reports/${id}`, {
         method: "PATCH",
-        headers: { "Content-Type": "application/json" },
+        headers: {
+            "Content-Type": "application/json"
+        },
         body: JSON.stringify({ status })
     })
         .then(response => {
-            if (!response.ok) throw new Error("Update failed");
+            if (!response.ok) {
+                throw new Error("Update failed.");
+            }
+
             return response.json();
         })
         .then(() => {
@@ -85,7 +104,8 @@ faultList.addEventListener("click", event => {
         })
         .catch(error => {
             console.error(error);
-            message.textContent = "Unable to update status.";
+            message.textContent =
+                "Unable to update status. Check that your local API is running.";
         });
 });
 

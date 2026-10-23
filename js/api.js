@@ -1,4 +1,4 @@
-const API_URL = "http://localhost:3000/fault_reports";
+const API_URL = "https://raw.githubusercontent.com/julius-kirima/fixtrail-api/main/db.json";
 
 //GET: Retrieve fault report
 
