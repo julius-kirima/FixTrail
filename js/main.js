@@ -25,16 +25,13 @@ faultForm.addEventListener("submit", function (event) {
         })
         .catch(function (error) {
             console.error("Submission error:", error);
-            formMessage.textContent = "Unable to submit your report. Please try again.";
+            formMessage.textContent =
+                "Unable to submit your report. Please try again.";
             formMessage.className = "error-message";
         });
 });
 
-
-
-
-//TRACKING  FAULTY STATUS
-
+// TRACK FAULT REPORT STATUS
 
 const trackForm = document.querySelector("#track-form");
 const trackMessage = document.querySelector("#track-message");
@@ -43,25 +40,33 @@ const trackResult = document.querySelector("#track-result");
 trackForm.addEventListener("submit", function (event) {
     event.preventDefault();
 
-    const reportId = document.querySelector("#report-id").value;
+    const reportId = document.querySelector("#report-id").value.trim();
 
-    fetch(`https://raw.githubusercontent.com/julius-kirima/FixTrail/main/db.json/${reportId}`)
+    fetch("https://raw.githubusercontent.com/julius-kirima/FixTrail/main/db.json")
         .then(function (response) {
             if (!response.ok) {
-                throw new Error("Report not found.");
+                throw new Error("Failed to load reports.");
             }
 
             return response.json();
         })
-        .then(function (report) {
+        .then(function (data) {
+            const report = data.fault_reports.find(function (item) {
+                return String(item.id) === reportId;
+            });
+
+            if (!report) {
+                throw new Error("Report not found.");
+            }
+
             trackMessage.textContent = "Report found.";
             trackResult.textContent =
                 `Fault: ${report.title} | Status: ${report.status.replace("_", " ")}`;
         })
         .catch(function (error) {
-            console.error(error);
+            console.error("Tracking error:", error);
             trackMessage.textContent =
-                "Report not found. Please check your report ID.";
+                "Unable to find that report. Check the ID and try again.";
             trackResult.textContent = "";
         });
 });
