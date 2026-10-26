@@ -84,7 +84,7 @@ faultList.addEventListener("click", event => {
         `.status-update[data-id="${id}"]`
     ).value;
 
-    fetch(`http://localhost:3001/fault_reports/${id}`, {
+    fetch(`https://raw.githubusercontent.com/julius-kirima/FixTrail/main/db.json${id}`, {
         method: "PATCH",
         headers: {
             "Content-Type": "application/json"
@@ -105,7 +105,7 @@ faultList.addEventListener("click", event => {
         .catch(error => {
             console.error(error);
             message.textContent =
-                "Unable to update status. Check that your local API is running.";
+                "Unable to update status. Check that  API is running.";
         });
 });
 

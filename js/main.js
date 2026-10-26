@@ -45,7 +45,7 @@ trackForm.addEventListener("submit", function (event) {
 
     const reportId = document.querySelector("#report-id").value;
 
-    fetch(`http://localhost:3000/fault_reports/${reportId}`)
+    fetch(`https://raw.githubusercontent.com/julius-kirima/FixTrail/main/db.json/${reportId}`)
         .then(function (response) {
             if (!response.ok) {
                 throw new Error("Report not found.");
